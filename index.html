@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <button onmousedown="taskOne()">Print 1 - 255</button><br><br>
+    <button onmousedown="taskTwo()">Print & sum 1-255 </button><br><br>
+    <button onmousedown="taskThree()">Console largest value in an Array</button><br><br>
+    <button onmousedown="taskFour()">Console odd number from 1-255</button><br><br>
+    <button onmousedown="taskFive()">Print value greater than Y in an Array</button><br><br>
+    <button onmousedown="taskSix()">Console Min Max & Avg of an Array</button><br><br>
+    <button onmousedown="taskSeven()">Console: replace negative values with "codebits"</button><br><br>
+    <button onmousedown="taskEight()">Print 1-255</button><br><br>
+    <button onmousedown="taskNine()">Print number in an Array</button><br><br>
+    <button onmousedown="taskTen()">Print the average sum of an Array</button><br><br>
+    <button onmousedown="taskEleven()">Console the square of an Array</button><br><br>
+    <button onmousedown="taskTwelve()">Console : replace negative number with zero(0)</button><br><br>
+    <button onmousedown="taskThirteen()">Shift the first value and add zero to the end of an Array</button>
+
+    
+    <script>
+        // Task one(1)
+
+
+        function taskOne(){
+            var i = 1;
+        while(i <= 255){
+            document.write(`${i}</br>`);
+            i++
+        }
+        }
+
+        // Task two(2)
+
+       function taskTwo(){
+        var sum = 0;
+        for(var i = 0; i <=255; i++){
+            sum += i;
+            document.write(`${i}</br>`);
+        }
+
+        document.write(`Total sum of the integers = ${sum}</br>`);
+       }
+
+        // Task three(3)
+
+       function taskThree(){
+        var array = [3 , 6, 2, 56, 32, 5, 89, 32];
+        var largest = 0;
+        for(var i=0; i <=array.length; i++){
+            if(array[i] > largest){
+                largest = array[i];
+
+            }
+        }
+        console.log(largest);
+       }
+
+        // Task four(4)
+
+        function taskFour(){
+            var oddArr = [];
+        for (var i = 1; i <= 255; i++){
+            if(i%2 != 0){
+                oddArr[i] = i;
+            }
+        }
+        console.log(oddArr);
+        }
+
+        //Task five(5)
+
+       function taskFive(){
+        var data = [7, 34, 22, 45, 12, 86, 14];
+        var y = 27;
+
+        function checkLargest(arr, Y){
+            for(var i = 0; i <= arr.length; i++){
+                if (arr[i]> Y){
+                    document.write(`${arr[i]}</br>`)
+                }
+            }
+        }
+
+        console.log(checkLargest(data, y));
+       }
+
+        //Task six(6)
+
+       function taskSix(){
+
+        var recordScore = [30, 15, 22, 78, 45, 34, 89, 50, 22, 48, 32, 51, 29];
+        
+        function checkMinMaxAvgOfRecord(arr){
+            let min = arr[0];
+            let max = arr[0];
+            let sumUp = 0;
+            let avgOfArr = 0;
+        
+            for(var i = 0; i < arr.length; i++){
+                
+                if(arr[i] > max){
+                    max = arr[i]
+                }else if(arr[i] < min){
+                    min = arr[i]
+                }
+                
+                sumUp = sumUp + arr[i];
+            }
+            avgOfArr = sumUp/arr.length;
+            return [max, min, avgOfArr];
+        }
+        console.log(checkMinMaxAvgOfRecord(recordScore));
+       }
+
+        // Task seven(7)
+
+       function taskSeven(){
+        var studentsPoint =[5, 3, -2,7, -8, 12, 1, -1, 8];
+       
+       function checkNegative(arr){
+           let replacement ="codebits";
+
+           for(var i =0; i < arr.length; i++){
+               if(arr[i] < 0){
+                   arr[i] = replacement;
+               }
+           }
+           return arr
+       }
+       console.log(checkNegative(studentsPoint));
+       }
+
+        // Task eight(8)
+        
+       function taskEight(){
+        var a = 1;
+        while(a <= 255){
+            if(a % 2 != 0){
+                document.write(`${a}<br>`);
+            }
+
+            a++;
+        }
+       }
+
+        //Task nine(9)
+
+       function taskNine(){
+        const scoreSheet = [30, 78, 23, 45, 34, 76, 58, 45, 49, 87, 21, 36];
+        var num= 0;
+
+        while(num < scoreSheet.length){
+            document.write(`${scoreSheet[num]}<br>`);
+            
+            num++;
+        }
+       }
+
+        //Task ten(10)
+
+       function taskTen(){
+        const resultScore = [89, 23, 22, 54, 47, 73, 56, 37, 71, 55, 44, 34, 50];
+        let sumResult= 0;
+
+        for(var i = 0; i < resultScore.length; i++){
+            sumResult +=resultScore[i];
+        }
+
+        const avg = sumResult/resultScore.length;
+        document.write(`The total average of student result scores = ${avg}`);
+       }
+
+        //Task eleven(11)
+
+       function taskEleven(){
+        let outputData = [2, 4, 6, 9, 3, 10, 5, 3, 6];
+
+        for (var i = 0; i < outputData.length; i++){
+            outputData[i] *= outputData[i];
+        }
+        console.log(outputData);
+         }
+
+        //Task twelve(12)
+
+       function taskTwelve(){
+        var aggregate = [-2, 4, 3, 8, 4, -1, 6, -2, 2];
+
+            function workOnThis(agg){
+                let negativeNum = 0;
+
+                for(var i =0; i < agg.length; i++){
+                    if(agg[i] < 0){
+                        agg[i] = negativeNum;
+                    }
+                }
+                return agg
+
+            }
+        console.log(workOnThis(aggregate));
+        }
+
+        //Task thirteen(13);
+
+        function taskThirteen(){
+        var list = ["rice", "Bean", "Potatoes", "carrot", "sugarcane", "pawpaw", "cassava"];
+        list.shift();
+        list.push(0);
+    
+        console.log(list);
+        }
+    </script>
+</body>
+</html>
